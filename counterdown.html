@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./style.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Timer</h1>
+
+      <p class="text">Please enter the amount of time that you want to count</p>
+
+      <div class="tables">
+        <div class="center">
+          <input type="number" id="hours" placeholder="hours" />
+
+          <table class="table" id="table-hour">
+            <tr class="timeunit1">
+              <th>Hours</th>
+            </tr>
+            <tr class="timeunit2">
+              <td id="hour">0</td>
+            </tr>
+          </table>
+        </div>
+        <div class="center">
+          <input type="number" id="minutes" placeholder="minutes" />
+          <table class="table" id="table-minute">
+            <tr class="timeunit1">
+              <th>Minutes</th>
+            </tr>
+            <tr class="timeunit2">
+              <td id="minute">0</td>
+            </tr>
+          </table>
+        </div>
+        <div class="center">
+          <input type="number" id="seconds" placeholder="seconds" />
+          <table class="table" id="table-second">
+            <tr class="timeunit1">
+              <th>Seconds</th>
+            </tr>
+            <tr class="timeunit2">
+              <td id="second">0</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="btn-super">
+        <button class="btn" onclick="startcounter()">Start</button>
+        <button class="btn" onclick="stopcounter()">Stop</button>
+        <button class="btn" onclick="clearcounter()">Clear</button>
+      </div>
+    </div>
+    <script>
+      let intervalobject = null;
+      function startcounter() {
+        let sec = 0;
+
+        let secstotal = document.getElementById("seconds").value;
+        let minstotalinsec = document.getElementById("minutes").value * 60;
+        let hourstotalinsec = document.getElementById("hours").value * 3600;
+        const totaltime =
+          Number(secstotal) + Number(minstotalinsec) + Number(hourstotalinsec);
+
+        intervalobject = setInterval(function () {
+          sec++;
+          if (sec <= totaltime) {
+            if (sec < 60) {
+              document.getElementById("second").innerHTML = sec;
+            } else if (sec < 3600) {
+              let min = Math.floor(sec / 60);
+              let seconds = sec - min * 60;
+              document.getElementById("second").innerHTML = seconds;
+              document.getElementById("minute").innerHTML = min;
+            } else {
+              let hour = sec / 3600;
+              let secondleft = sec - hour * 3600;
+              let min = Math.floor(secondleft / 60);
+              let seconds = secondleft - min * 60;
+
+              document.getElementById("second").innerHTML = sec;
+              document.getElementById("minute").innerHTML = min;
+              document.getElementById("hour").innerHTML = hour;
+            }
+          } else {
+            function changecolorcard() {
+              let objcard = document.querySelector(".card");
+              objcard.style.backgroundColor =
+                objcard.style.backgroundColor == "red" ? "yellow" : "red";
+            }
+            //setInterval(changecolorcard, 200);
+
+            const stopfunction = setInterval(changecolorcard, 200);
+            setTimeout(() => {
+              clearInterval(intervalobject);
+              clearInterval(stopfunction);
+            }, 3000);
+          }
+        }, 1000);
+      }
+
+      function stopcounter() {
+        clearInterval(intervalobject);
+      }
+      function clearcounter() {
+        document.getElementById("second").innerHTML = "0";
+        document.getElementById("minute").innerHTML = "0";
+        document.getElementById("hour").innerHTML = "0";
+      }
+    </script>
+  </body>
+</html>

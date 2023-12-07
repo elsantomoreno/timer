@@ -1,0 +1,99 @@
+body {
+  background-image: url("./pexels-giallo-859895.jpg");
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: blue;
+}
+.text {
+  text-align: center;
+  margin-right: 1px;
+  color: azure;
+  font-size: large;
+}
+.card {
+  display: block;
+  width: 70%;
+  background-color: blue;
+}
+.card h1 {
+  text-align: center;
+}
+.card input {
+  padding-left: 20px;
+  margin-right: 60px;
+  margin-left: 20px;
+  max-width: 70%;
+}
+.card p {
+  padding-left: 20px;
+}
+.timeenter {
+  max-width: 100%;
+  max-width: 50%;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tables {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table tr {
+  width: 100%;
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  flex-wrap: wrap;
+}
+.table tr td {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background-color: rgb(243, 227, 7);
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.table tr th {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+.btn-super {
+  margin-top: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.time-unit1 {
+  text-align: center;
+}
